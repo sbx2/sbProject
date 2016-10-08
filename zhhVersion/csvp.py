@@ -1,7 +1,7 @@
 import sys
 sys.path.append('..')
 from Date import Date
-def read(fn):
+def readCSV(fn):
     f = open(fn)
     t = f.read().split(chr(477))
     res = {}
@@ -14,8 +14,13 @@ def read(fn):
             row = row.split(',')
             tem = {}
             for i in range(2,len(header)):
-                tem[header[i]]=row[i]
-            dt[row[1]] = tem
+                try:tem[header[i]]=row[i]
+                except:continue
+            try:dt[row[1]] = tem
+            except:continue
         res[wt] = dt        
     f.close()
 
+    return res
+r = readCSV('../Deburr.csv')
+print(r['C12']['344']['14-Sep'])
