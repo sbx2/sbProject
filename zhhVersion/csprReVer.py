@@ -33,6 +33,7 @@ class CSreportController:
         self.res[wt][pd] = {}
         for i in self.header:
             self.res[wt][pd][i] = 0
+            self.res[wt][pd]['Ratio'] = 0
     def setVal(self,wt,pd,dt,val):
         self.res[wt][pd][dt] = val
     def calcTotalW(self):
@@ -58,12 +59,13 @@ class CSreportController:
             f.writelines(row0+'\n')
             f.writelines('%s\n'%line for line in rows)
             datot = [self.res[wt]['dailyTotal'][h] for h in self.header]
-            rowf = ',Total,'+str(sum(datot))+',,'+','.join([str(x) for x in datot])
+            rowf = ',Total,'+str(sum(datot))+',0,'+','.join([str(x) for x in datot])
             f.writelines(rowf+'\n')
         f.close()
 
-a = CSreportController('../DeBurr.csv')
-a.calcTotalW()
-a.calcTotalD()
-print(a.header)
-a.oup('oup.csv')
+#a = CSreportController('../DeBurr.csv')
+#a.addPD('C15',4322)
+#a.calcTotalW()
+#a.calcTotalD()
+#print(a.header)
+#a.oup('oup.csv')
