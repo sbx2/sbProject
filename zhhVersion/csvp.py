@@ -1,6 +1,3 @@
-import sys
-sys.path.append('..')
-from Date import Date
 def readCSV(fn):
     f = open(fn)
     t = f.read().split(chr(477))
@@ -36,8 +33,3 @@ def calcNoWs(table,wt,pd):
     table[wt][pd]['# of wheels']=sum([int(table[wt][pd][d]) if d!='# of wheels' and isNum(table[wt][pd][d]) else 0 for d in table[wt][pd]])
 
 
-r = readCSV('../Deburr.csv')
-addPD(r,'C02','111')
-setVal(r,'C02','111','8-Sep','26')
-calcNoWs(r,'C02','346')
-print(r['C02']['346']['# of wheels'] )
