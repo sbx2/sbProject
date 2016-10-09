@@ -58,7 +58,7 @@ class CSreportController:
             f.writelines(row0+'\n')
             f.writelines('%s\n'%line for line in rows)
             datot = [self.res[wt]['dailyTotal'][h] for h in self.header]
-            rowf = ',Total,'+str(sum(datot))+','+','.join([str(x) for x in datot])
+            rowf = ',Total,'+str(sum(datot))+',,'+','.join([str(x) for x in datot])
             f.writelines(rowf+'\n')
         f.close()
 
