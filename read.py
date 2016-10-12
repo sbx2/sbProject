@@ -28,8 +28,8 @@ def zidian():
     dictc02 = {c02wt:c02pd}
     for i in range(0,c02cln-1):
         dictc02[c02pd[i]] = c02ttnum[i]
-
-    dictc02
+    for i in range(1,c02cln-1):
+        dictc02[c02ttnum[i]] = sum(rd('Deburrcopy.csv')[i][4],rd('Deburrcopy.csv')[i][33])
     return dictc02
 
 
