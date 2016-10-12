@@ -25,8 +25,12 @@ def zidian():
         c02pd.append(rd('Deburrcopy.csv')[i][1])
     for i in range(1,c02cln):
         c02ttnum.append(rd('Deburrcopy.csv')[i][2])
-    dicti = {c02wt:c02pd}
-    return 
+    dictc02 = {c02wt:c02pd}
+    for i in range(0,c02cln-1):
+        dictc02[c02pd[i]] = c02ttnum[i]
+
+    dictc02
+    return dictc02
 
 
 #print(rd('Deburrcopy.csv')[0][0])
