@@ -15,8 +15,8 @@ def rd(fn):
             res.append([int(x) if isNum(x) else x for x in row])
         return res
 
-def zidian():
-    c02cln = 15
+def zidian(c02cln):
+#    c02cln = 15
     c02ttnum=[]
     c02pd=[]
     c02wt = rd('Deburrcopy.csv')[0][0]
@@ -32,6 +32,10 @@ def zidian():
         dictc02[c02ttnum[i-1]] = rd('Deburrcopy.csv')[i][4:]
     return dictc02
 
+    
+
+    
+
 
 #print(rd('Deburrcopy.csv')[0][0])
-print(zidian())
+print(zidian(15))
