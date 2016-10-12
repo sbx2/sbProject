@@ -16,11 +16,17 @@ def rd(fn):
         return res
 
 def zidian():
+    c02cln = 15
+    c02ttnum=[]
+    c02pd=[]
     c02wt = rd('Deburrcopy.csv')[0][0]
     dt = rd('Deburrcopy.csv')[0][4:]
-    for i in range(1,14):
-        pd = pd.append(rd('Deburrcopy.csv')[i][1]
-    return pd
+    for i in range(1,c02cln):
+        c02pd.append(rd('Deburrcopy.csv')[i][1])
+    for i in range(1,c02cln):
+        c02ttnum.append(rd('Deburrcopy.csv')[i][2])
+    dicti = {c02wt:c02pd}
+    return 
 
 
 #print(rd('Deburrcopy.csv')[0][0])
