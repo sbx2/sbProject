@@ -12,6 +12,7 @@ def rd(fn):
     with open(fn, newline='\n') as csvin:
         data = csv.reader(csvin, delimiter=',')
         for row in data:
+            
             res.append([int(x) if isNum(x) else x for x in row])
         return res
 
@@ -32,15 +33,16 @@ def zidian(c02cln):
         # {346:30,331:28}
         dictc02[c02pd[i]] = c02ttnum[i]
         dictc02[c02wt] = c02pd
-##    for i in range(1,c02cln-1):
-        # {total :[all date]}
-##        c02ttnum[i-1] = rd('Deburrcopy.csv')[i][4:]
+##    for i in range(1,c02cln):
+##        # {total :[all date]}
+        dictc02[c02ttnum[i]] = sum(rd('Deburrcopy.csv')[i][4:])
     return dictc02
 
     
 
     
 
+for i in range(1,15):
+    print(rd('Deburrcopy.csv')[i][4:])
 
-#print(rd('Deburrcopy.csv')[0][0])
-print(zidian(15))
+#print(zidian(15))
