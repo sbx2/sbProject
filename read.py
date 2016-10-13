@@ -33,8 +33,7 @@ def zidian(c02cln):
         # {346:30,331:28}
         dictc02[c02pd[i]] = c02ttnum[i]
         dictc02[c02wt] = c02pd
-##    for i in range(1,c02cln):
-##        # {total :[all date]}
+##      {total :[all date]}
         dictc02[c02ttnum[i]] = sum(rd('Deburrcopy.csv')[i][4:])
     return dictc02
 
