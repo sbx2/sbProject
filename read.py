@@ -19,19 +19,22 @@ def zidian(c02cln):
 #    c02cln = 15
     c02ttnum={}
     c02pd={}
+    dictc02 = {}
     c02wt = rd('Deburrcopy.csv')[0][0]
     dt = rd('Deburrcopy.csv')[0][4:]
-    for i in range(1,c02cln):   #PD column
- #       c02pd.append(rd('Deburrcopy.csv')[i][1])
-        c02pd = rd('Deburrcopy.csv')[i][1]
-    for i in range(1,c02cln):   # "# of wheels" total number for c02
- #       c02ttnum.append(rd('Deburrcopy.csv')[i][2])
-        c02ttnum = rd('Deburrcopy.csv')[i][2]
-    dictc02 = {c02wt:c02pd}     #dictionary
-    for i in range(0,c02cln-1): # {'C02':[346..352]}
-        c02pd[i] = c02ttnum[i]
-    for i in range(1,c02cln-1): # {total :[all date]}
-        c02ttnum[i-1] = rd('Deburrcopy.csv')[i][4:]
+    for i in range(1,c02cln):
+        #PD column  {1:}
+        c02pd[i] = rd('Deburrcopy.csv')[i][1]
+    for i in range(1,c02cln):
+        # "# of wheels" total number for c02
+        c02ttnum[i] = rd('Deburrcopy.csv')[i][2]
+    for i in range(1,c02cln):
+        # {346:30,331:28}
+        dictc02[c02pd[i]] = c02ttnum[i]
+        dictc02[c02wt] = c02pd
+##    for i in range(1,c02cln-1):
+        # {total :[all date]}
+##        c02ttnum[i-1] = rd('Deburrcopy.csv')[i][4:]
     return dictc02
 
     
